@@ -119,6 +119,18 @@ body {
   color: var(--textColor);
 }
 
+header,
+section {
+  /* change as needed */
+  padding: 3rem 0;
+}
+@media (min-width: 40em) {
+  header,
+  section {
+    padding: 7rem 0;
+  }
+}
+
 /* don't change  */
 p {
   margin-bottom: 1.5rem;
@@ -185,12 +197,54 @@ ul {
 
 /* uniform control through parent container -- give that item a class name of the container  */
 /* dont use this for a logo */
-.img {
-  width: 100%;
+img {
+  max-width: 100%;
   /* set as block to remove space at bottom */
   display: block;
   /* keeps the aspect ratio correct */
   object-fit: cover;
+}
+
+/* classes to add to specific sections to keep your code dry 
+ */
+.text-center {
+  text-align: center;
+}
+
+/* wrap all your divs inside a section with this code */
+.container {
+  /* left and right margin */
+  margin-inline: auto;
+  /* sets width 90%, change max width 70.5rem to fit design */
+  width: min(90%, 70.5rem);
+}
+
+/* use when you want a narrow stacking header */
+/* change rem as needed */
+.container-narrow {
+  max-width: 30rem;
+}
+
+/* use this for sections with two columns */
+.split {
+  display: flex;
+  flex-direction: column;
+}
+/* changes flex direction to side by side as screen is bigger */
+@media (min-width: 40em) {
+  .split {
+    flex-direction: row;
+  }
+
+  /* makes columns equal width */
+  .split > * {
+    flex-basis: 100%;
+  }
+
+  /* gap inside of child on right */
+  .split > * + * {
+    margin-left: 2em;
+  }
 }
 
 /* buttons */
